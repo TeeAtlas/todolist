@@ -7,3 +7,7 @@
 body {
     /* do we want a gradient or solid colours */
 }
+
+img {
+    height: 30px;   
+}
