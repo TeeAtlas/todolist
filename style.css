@@ -4,9 +4,21 @@
     box-sizing: border-box;
 }
 
-body {
-    /* do we want a gradient or solid colours */
+@font-face {
+    font-family: 'Helvetica Now Display Extra Light';
+    src: url('fonts/HelveticaNowDisplay-ExtLt.ttf') format('truetype');
 }
+
+body {
+    font-family: 'Helvetica Now Display Extra Light';
+    font-weight: 300;
+    font-size: 16px;
+    color: #4d4c4c;
+    background-color: #ffffff;
+}
+
+
+
 
 img {
     height: 30px;   
