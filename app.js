@@ -8,7 +8,7 @@ const countValue = document.querySelector('.count__value');
 // initialising variable for task count
 let taskCount = 0;
 
-// ass tasks are added deleted or checked off the dispaly count function is defined
+// as tasks are added, deleted or checked off the display count function is defined
 const displayCount = (taskCount) => {
     countValue.innerText = taskCount;
 };
@@ -26,8 +26,19 @@ const addTask = () => {
         return;
     }
 
+    // declared as an html string stored in the task variable
+    const task = `<div class="task">
+     <input type="checkbox" class="task-check">
+     <span class="taskname">${taskName}</span>
+     <button class="edit">
+     <i class="fa-regular fa-pen-to-square"></i>
+     </button>
+     <button class="delete">
+     <i class="fa-regular fa-trash-can"></i>
+     </button>
+    </div>`;
 
+    listContainer.insertAdjacentHTML("beforeend", task);
 };
 
-
-
+addBtn.addEventListener("click", addTask);
