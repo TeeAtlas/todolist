@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div id="todo__wrapper">
+    
+    <div class="app">
+        <div class="container">
             <h1><span class="to">To</span><span class="do">Do</span> List <img src="./images/icon.png"></h1>
-            <div class="row__inputField">
-                <input type="text" placeholder="Add a new task">
-                <button id="submitBtn">Submit</button>
+
+            <div id="todo__wrapper">
+                <input type="text" placeholder="add item here..." />
+                <button id="submitBtn">Add</button>
             </div>
-            <div class="row__button"></div>
             
-            <div class="row__list">
-            <ul id="list__container">
-                <li></li>
-            </ul>
-            </div> 
+            <div id="tasks">
+                <p id="task__title">pending tasks <span class="count value">(s)</span> </p>
+            </div>
         </div>
+        <!-- <p id="error">C'mon, you must have something to do</p> -->
     </div>
     
     <script src="app.js"></script>
