@@ -17,7 +17,7 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(#ffd5ff 50%, #5a95ff 50%); /* this gradient has solid stops */
+    background: linear-gradient(#fbddfb 50%, #535455 50%); /* this gradient has solid stops */
 }
 
 .app {
@@ -80,6 +80,22 @@ body {
 
 #todo__wrapper > button:hover {
     background-color: #4cdb83;
+}
+
+/* here we are styling the error message */
+#error {
+font-family: "Helvetica Now Display Medium";
+    text-align: center;
+    background-color: #ffffff;
+    /* we are setting colour to red because it indicates danger or a mistake */
+    color: #ff5c5c;
+    margin-top: 1.5em;
+    padding: 1em 0;
+    /* below gives it a card like appearance */
+    border-radius: 0.8em;
+    display: none;
+
+
 }
 
 img {
