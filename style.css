@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    /* helps with consistent calculations */
     box-sizing: border-box;
 }
 
@@ -15,15 +16,37 @@
 }
 
 body {
+    height: 100vh;
+    background: linear-gradient(#ffd5ff 50%, #5a95ff 50%); /* this gradient has solid stops */
+}
+
+.app {
     font-family: 'Helvetica Now Display Extra Light';
     font-weight: 300;
     font-size: 16px;
     color: #4d4c4c;
-    background-color: #ffffff;
+    width: min(95vw, 31.25em); /* viewport width or 31.25, whichever is smaller */
+    position: absolute;
+    margin: auto;
+    /* left and right ensure the app container is centered horizontally */
+    left : 0;
+    right: 0;
+    top: 1.875em;
 }
 
 
+.container {
+    background-color: #f1f8fb;
+    border-radius: 0.625em;
+    padding: 2em 2.5em;
+    box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.2);
+}
 
+#todo__wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 8fr 4fr
+}
 
 img {
     height: 30px;   
