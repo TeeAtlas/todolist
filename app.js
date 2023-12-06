@@ -1,7 +1,8 @@
 // selectors are used to select elements from the html document
-const todoInput =  document.querySelector('.todo__wrapper input');
+const todoInput =  document.querySelector('#todo__wrapper-input');
 const submitBtn = document.querySelector('#submitBtn');
 const listContainer = document.querySelector('#list__container');
+const tasks = document.querySelector('#tasks')
 
 
 
@@ -12,8 +13,10 @@ submitBtn.addEventListener('click', function(e) {
     // create a new list item because the user clicked the submit button
     const newListItem = document.createElement('li');
     
-    //set the text of the new list item to the values of the input field
-    newListItem.textContent = todoInput.value;
+    //it commands what a new "li" will be // (here we say a new li will be our new child)
+    tasks.appendChild(newListItem);
+    //set the text of the new list item to the values of the input field ( where this child will be placed and connects the value of the todoinput with newListItem and puts it into HTML(body))
+    newListItem.innerHTML = todoInput.value
 
 
     console.log(todoInput.value);
@@ -24,6 +27,7 @@ submitBtn.addEventListener('click', function(e) {
     todoInput.value = '';
 
 });
+submitBtn.addEventListener('click',submitBtn)
 
 
 
