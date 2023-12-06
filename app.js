@@ -16,18 +16,19 @@ submitBtn.addEventListener('click', function(e) {
     //it commands what a new "li" will be // (here we say a new li will be our new child)
     tasks.appendChild(newListItem);
     //set the text of the new list item to the values of the input field ( where this child will be placed and connects the value of the todoinput with newListItem and puts it into HTML(body))
-    newListItem.innerHTML = todoInput.value
+    newListItem.innerHTML = todoInput.value;
+    // clear the input field
+    todoInput.value = "";
 
 
-    console.log(todoInput.value);
+
     // Append the new list item to the list comtainer div
     listContainer.appendChild(newListItem);
 
-    // clear the input field
-    todoInput.value = '';
+    
 
 });
-submitBtn.addEventListener('click',submitBtn)
+
 
 
 
