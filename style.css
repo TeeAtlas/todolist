@@ -12,7 +12,7 @@
 
 @font-face {
     font-family: 'Helvetica Now Display Medium';
-    src: url('fonts\HelveticaNowDisplay-Medium.ttf') format('truetype');
+    src: url('fonts/HelveticaNowDisplay-Medium.ttf') format('truetype');
 }
 
 body {
@@ -45,7 +45,41 @@ body {
 #todo__wrapper {
     position: relative;
     display: grid;
-    grid-template-columns: 8fr 4fr
+    grid-template-columns: 8fr 4fr;
+    gap: 1em;
+}
+
+#todo__wrapper > input {
+    width: 100%;
+    background-color: transparent;
+    color: #111111;
+    font-size: 0.9em;
+    border: none ;
+    border-bottom: 2px solid #d1d3d4;
+    padding: 0.5em 0.5em;
+}
+
+
+/* focus is used because it changes the styling when user focuses on input */
+#todo__wrapper input:focus {
+    outline: none;
+    border-color: #4cdb83;
+}
+
+#todo__wrapper > button {
+    position: relative;
+    border-radius: 0.625em;
+    font-family: 'Helvetica Now Display Medium';
+    font-size: 1em;
+    color: #ffffff;
+    background-color: rgb(155, 155, 155);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#todo__wrapper > button:hover {
+    background-color: #4cdb83;
 }
 
 img {
