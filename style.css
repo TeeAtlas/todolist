@@ -17,7 +17,7 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(#fbddfb 50%, #535455 50%); /* this gradient has solid stops */
+    background: linear-gradient(#ddfbf3 50%, #535455 50%); /* this gradient has solid stops */
 }
 
 .app {
@@ -79,7 +79,7 @@ body {
 }
 
 #todo__wrapper > button:hover {
-    background-color: #4cdb83;
+    background-color: #6a6b6a;
 }
 
 /* here we are styling the error message */
