@@ -1,5 +1,5 @@
 // selectors are used to select elements from the html document
-const todoInput =  document.querySelector('.row__inputField input');
+const todoInput =  document.querySelector('.todo__wrapper input');
 const submitBtn = document.querySelector('#submitBtn');
 const listContainer = document.querySelector('#list__container');
 
