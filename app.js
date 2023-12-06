@@ -13,7 +13,7 @@ submitBtn.addEventListener('click', function(e) {
     const newListItem = document.createElement('li');
     
     //set the text of the new list item to the values of the input field
-    newListItem.textContent = todoInput.value;
+    newListItem.innerText = todoInput.value;
 
 
     console.log(todoInput.value);
