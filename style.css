@@ -10,11 +10,6 @@
     src: url('fonts/HelveticaNowDisplay-ExtLt.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Helvetica Now Display Medium';
-    src: url('fonts/HelveticaNowDisplay-Medium.ttf') format('truetype');
-}
-
 body {
     height: 100vh;
     background: linear-gradient(#ddfbf3 50%, #535455 50%); /* this gradient has solid stops */
