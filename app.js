@@ -40,14 +40,37 @@ const renderListItem = (string) => {
         const newListItem = document.createElement('li');
 
         //it gives a new "li" a class  ---> gotta adjust liStyling in css part
-        newListItem.classList.add("liStyling");
+        newListItem.classList.add("li__Styling");
         
         //set the text of the new list item to the values of the input field ( where this child will be placed and connects the value of the todoinput with newListItem and puts it into HTML(body))
         newListItem.innerHTML = string;
         
-        //it commands what a new "li" will be // (here we say a new li will be our new child)
+
+
+        
+        // create a new delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = "X";
+        
+        //nested function is the event listener for the delete button
+        // and updates the local storage memory with json stringify
+        deleteBtn.addEventListener('click', (e) => {
+            let todosArray = JSON.parse(localStorage.getItem('localStorageToDos'));
+            // filter the array of todos to remove the todo that was clicked
+            arrayOfTodos = todosArray.filter((todo) => todo.title !== string);
+            // set the array of todos to local storage
+            localStorage.setItem('localStorageToDos', JSON.stringify(arrayOfTodos));
+            listContainer.removeChild(newListItem)
+        });
+        
+        //append delete button to the new item
+        newListItem.appendChild(deleteBtn);
+        
+
         // Append the new list item to the list comtainer div
         listContainer.appendChild(newListItem);
+        
+       
 }
 
 
@@ -66,8 +89,8 @@ addBtn.addEventListener('click', (e) => {
     e.preventDefault(); // prevents the default behavior of the submit button
 
 
-    // if the input field is empty, alert the user
-    if(todoInput.value == ""){
+    // if the input field is empty, .trim method removes whitespace from both sides of a string prevents the user from adding an empty todo
+    if(todoInput.value.trim() == ""){
         alert("You must write a task in the input")
         return
     }
@@ -83,8 +106,6 @@ addBtn.addEventListener('click', (e) => {
 
 
 
-
-
 //  // create a new delete button
 //  const deleteBtn = document.createElement('button');
 //  deleteBtn.textContent = 'X';
@@ -96,15 +117,15 @@ addBtn.addEventListener('click', (e) => {
 //  deleteBtn.style.borderRadius = '10px';
 
 
-//  // this nested function is the event listener for the delete button
-//  deleteBtn.addEventListener('click', function(e){
-//      // remove item when delete is clicked
-//      listContainer.removeChild(newListItem);
+ // this nested function is the event listener for the delete button
+ deleteBtn.addEventListener('click', function(e){
+     // remove item when delete is clicked
+     listContainer.removeChild(newListItem);
 
-//  });
+ });
 
-//   //append delete button to the new item
-//   newListItem.appendChild(deleteBtn);
+  //append delete button to the new item
+  newListItem.appendChild(deleteBtn);
 
 
 
