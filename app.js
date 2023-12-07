@@ -7,33 +7,10 @@ const countValue = document.querySelector('.count__value');
 
 
 
+// add task button is defined when add button is clicked
 
-const addToLocalStorage = (string) => {
-    const ms = new Date()
-    const id = Math.floor(Math.random() * 10000 * ms.getMilliseconds())
-    console.log(ms, id)
 
-    // create a new object with the new todo and a unique id
-    let newTodo = {
-        title: string,
-        isDone: false,
-        id: id
-    }
 
-    // get the todos that are already in local storage
-    let arrayOfTodos = []  
-
-    // if there are todos in local storage, get them and stringify them
-    if(localStorage.getItem('localStorageToDos')){
-        arrayOfTodos = JSON.parse(localStorage.getItem('localStorageToDos'))
-    }
-    
-    // add the new todo string the array
-    arrayOfTodos.push(newTodo)
-
-    // set the array of todos to local storage
-    localStorage.setItem('localStorageToDos', JSON.stringify(arrayOfTodos))
-}
 
 const renderListItem = (string) => {
         // create a new list item because the user clicked the submit button
@@ -90,10 +67,18 @@ addBtn.addEventListener('click', (e) => {
 
 
     // if the input field is empty, .trim method removes whitespace from both sides of a string prevents the user from adding an empty todo
-    if(todoInput.value.trim() == ""){
-        alert("You must write a task in the input")
-        return
-    }
+        if (todoInput.value.trim() == "") {
+        error.style.display = "block"; 
+        setTimeout(() => {
+            error.style.display = "none";
+        } , 2000);
+            return;
+        }
+    
+    // if(todoInput.value.trim() == ""){
+    //     alert("You must write a task in the input")
+    //     return
+    // }
 
     // add a todo to the ul
     renderListItem(todoInput.value)
@@ -104,6 +89,35 @@ addBtn.addEventListener('click', (e) => {
     todoInput.value = ""; // clear the input field
 });
 
+
+
+
+const addToLocalStorage = (string) => {
+    const ms = new Date()
+    const id = Math.floor(Math.random() * 10000 * ms.getMilliseconds())
+    console.log(ms, id)
+
+    // create a new object with the new todo and a unique id
+    let newTodo = {
+        title: string,
+        isDone: false,
+        id: id
+    }
+
+    // get the todos that are already in local storage
+    let arrayOfTodos = []  
+
+    // if there are todos in local storage, get them and stringify them
+    if(localStorage.getItem('localStorageToDos')){
+        arrayOfTodos = JSON.parse(localStorage.getItem('localStorageToDos'))
+    }
+    
+    // add the new todo string the array
+    arrayOfTodos.push(newTodo)
+
+    // set the array of todos to local storage
+    localStorage.setItem('localStorageToDos', JSON.stringify(arrayOfTodos))
+}
 
 
 //  // create a new delete button
@@ -140,18 +154,6 @@ addBtn.addEventListener('click', (e) => {
 
 
 
-// // add task button is defined when add button is clicked
-// const addTask = () => {
-//     const taskName = todoInput.value.trim();
-//     error.style.display = "none"; 
-//     if (!taskName) {
-//         // checks if empty or contains only whitespace chars
-//         setTimeout(() => {
-//             error.style.display = "block";
-//         }, 200); 
-        
-//         return;
-//     }
 
     // declared as an html string stored in the task variable
 // const task = `<div class="task">
