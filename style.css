@@ -17,7 +17,7 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(#ddfbf3 50%, #535455 50%); /* this gradient has solid stops */
+    background: lightgrey; /* this gradient has solid stops */
 }
 
 .app {
