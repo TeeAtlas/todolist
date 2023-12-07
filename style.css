@@ -82,9 +82,22 @@ body {
     background-color: #6a6b6a;
 }
 
+/* Delete button styling */
+.delete__btn {
+    border: none;
+    grid-area: 1 / 8 /1/ 8 ;
+    justify-self: right;
+}
+
+.delete__btn > i {
+    height: 1.5em;
+    cursor: pointer;
+    color: #ff5c5c;
+}
+
 /* here we are styling the error message */
 #error {
-font-family: "Helvetica Now Display Medium";
+    font-family: "Helvetica Now Display Medium";
     text-align: center;
     background-color: #ffffff;
     /* we are setting colour to red because it indicates danger or a mistake */

@@ -27,7 +27,9 @@ const renderListItem = (string) => {
         
         // create a new delete button
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = "X";
+        //class name for styling
+        deleteBtn.className = "delete__btn";
+        deleteBtn.innerHTML = '<i class="fa fa-trash"></i>';
         
         //nested function is the event listener for the delete button
         // and updates the local storage memory with json stringify
