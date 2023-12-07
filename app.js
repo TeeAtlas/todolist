@@ -5,6 +5,110 @@ const listContainer = document.querySelector('#tasks');
 const error = document.querySelector('#error');
 const countValue = document.querySelector('.count__value');
 
+
+
+
+const addToLocalStorage = (string) => {
+    const ms = new Date()
+    const id = Math.floor(Math.random() * 10000 * ms.getMilliseconds())
+    console.log(ms, id)
+
+    // create a new object with the new todo and a unique id
+    let newTodo = {
+        title: string,
+        isDone: false,
+        id: id
+    }
+
+    // get the todos that are already in local storage
+    let arrayOfTodos = []  
+
+    // if there are todos in local storage, get them and stringify them
+    if(localStorage.getItem('localStorageToDos')){
+        arrayOfTodos = JSON.parse(localStorage.getItem('localStorageToDos'))
+    }
+    
+    // add the new todo string the array
+    arrayOfTodos.push(newTodo)
+
+    // set the array of todos to local storage
+    localStorage.setItem('localStorageToDos', JSON.stringify(arrayOfTodos))
+}
+
+const renderListItem = (string) => {
+        // create a new list item because the user clicked the submit button
+        const newListItem = document.createElement('li');
+
+        //it gives a new "li" a class  ---> gotta adjust liStyling in css part
+        newListItem.classList.add("liStyling");
+        
+        //set the text of the new list item to the values of the input field ( where this child will be placed and connects the value of the todoinput with newListItem and puts it into HTML(body))
+        newListItem.innerHTML = string;
+        
+        //it commands what a new "li" will be // (here we say a new li will be our new child)
+        // Append the new list item to the list comtainer div
+        listContainer.appendChild(newListItem);
+}
+
+
+//which is set to the local storage memory in the add to storage function yhi
+if(localStorage.getItem('localStorageToDos')){
+    const todosArray = JSON.parse(localStorage.getItem('localStorageToDos'))
+
+    todosArray.forEach(element => renderListItem(element.title))
+}
+
+
+
+
+// this function is the event listener for the todo input field
+addBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // prevents the default behavior of the submit button
+
+
+    // if the input field is empty, alert the user
+    if(todoInput.value == ""){
+        alert("You must write a task in the input")
+        return
+    }
+
+    // add a todo to the ul
+    renderListItem(todoInput.value)
+    
+    // adds it to the localstorage memory
+    addToLocalStorage(todoInput.value)
+    
+    todoInput.value = ""; // clear the input field
+});
+
+
+
+
+
+//  // create a new delete button
+//  const deleteBtn = document.createElement('button');
+//  deleteBtn.textContent = 'X';
+
+//  // adding basic styling to button
+//  deleteBtn.style.color = 'grey';
+//  deleteBtn.style.backgroundColor = 'white';
+//  deleteBtn.style.border = '.5px solid grey';
+//  deleteBtn.style.borderRadius = '10px';
+
+
+//  // this nested function is the event listener for the delete button
+//  deleteBtn.addEventListener('click', function(e){
+//      // remove item when delete is clicked
+//      listContainer.removeChild(newListItem);
+
+//  });
+
+//   //append delete button to the new item
+//   newListItem.appendChild(deleteBtn);
+
+
+
+
 // // initialising variable for task count
 // let taskCount = 0;
 
@@ -12,6 +116,8 @@ const countValue = document.querySelector('.count__value');
 // const displayCount = (taskCount) => {
 //     countValue.innerText = taskCount;
 // };
+
+
 
 // // add task button is defined when add button is clicked
 // const addTask = () => {
@@ -41,6 +147,9 @@ const countValue = document.querySelector('.count__value');
 //     listContainer.insertAdjacentHTML("beforeend", task);
 // };
 
+
+
+
 // Enrique's adding a new task way
 // const renderTask = (todo) => {
 //     const li = document.createElement('li');
@@ -57,59 +166,3 @@ const countValue = document.querySelector('.count__value');
 //         </input>;
 //         listContainer.appendChild(li);
 // }
-
- 
-
-
-
-// this function is the event listener for the submit button
-addBtn.addEventListener('click', function(e){
-    e.preventDefault(); // prevents the default behavior of the submit button
-
-    // create a new list item because the user clicked the submit button
-    const newListItem = document.createElement('li');
-
-    //it gives a new "li" a class  ---> gotta adjust liStyling in css part
-    newListItem.classList.add("liStyling");
-    
-    //it commands what a new "li" will be // (here we say a new li will be our new child)
-    listContainer.appendChild(newListItem);
-    //set the text of the new list item to the values of the input field ( where this child will be placed and connects the value of the todoinput with newListItem and puts it into HTML(body))
-    newListItem.innerHTML = todoInput.value;
-    // clear the input field
-    todoInput.value = "";
-
-
-
-    // Append the new list item to the list comtainer div
-    // listContainer.appendChild(newListItem);
-
-    
-
-});
-
-
-
-
-
-
-//  // create a new delete button
-//  const deleteBtn = document.createElement('button');
-//  deleteBtn.textContent = 'X';
-
-//  // adding basic styling to button
-//  deleteBtn.style.color = 'grey';
-//  deleteBtn.style.backgroundColor = 'white';
-//  deleteBtn.style.border = '.5px solid grey';
-//  deleteBtn.style.borderRadius = '10px';
- 
-
-//  // this nested function is the event listener for the delete button
-//  deleteBtn.addEventListener('click', function(e){
-//      // remove item when delete is clicked
-//      listContainer.removeChild(newListItem);
-     
-//  });
-
-//   //append delete button to the new item
-//   newListItem.appendChild(deleteBtn);
