@@ -15,6 +15,13 @@
     src: url('fonts/HelveticaNowDisplay-Med.ttf') format('truetype');
 }
 
+@font-face {
+    @font-face {
+        font-family: 'Helvetica Now Display Medium';
+        src: url('fonts/HelveticaNowDisplay-Med.ttf') format('truetype');
+    }
+}
+
 body {
     height: 100vh;
     background: lightgrey; /* this gradient has solid stops */
@@ -61,6 +68,19 @@ body {
 
 
 /* focus is used because it changes the styling when user focuses on input */
+
+
+#tasks {
+    margin-top: 5px;
+    font-size: 1em;
+    color: #4d4c4c;
+}
+
+li {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
 #todo__wrapper input:focus {
     outline: none;
     border-color: #4cdb83;
@@ -80,6 +100,7 @@ body {
 
 #todo__wrapper > button:hover {
     background-color: #6a6b6a;
+    transform: scale(1.1); /* 1.2 is the scale factor, adjust as needed */
 }
 
 /* Delete button styling */
@@ -87,12 +108,19 @@ body {
     border: none;
     grid-area: 1 / 8 /1/ 8 ;
     justify-self: right;
+    margin-left: 10px; /* adjust as needed */
+    cursor: pointer;
 }
 
 .delete__btn > i {
     height: 1.5em;
     cursor: pointer;
+    color: #6a6b6a;
+}
+
+.delete__btn:hover > i {
     color: #ff5c5c;
+    transform: scale(1.2); /* 1.2 is the scale factor, adjust as needed */
 }
 
 /* here we are styling the error message */
@@ -107,7 +135,6 @@ body {
     /* below gives it a card like appearance */
     border-radius: 0.8em;
     display: none;
-
 }
 
 img {
