@@ -10,15 +10,15 @@
     src: url('fonts/HelveticaNowDisplay-ExtLt.ttf') format('truetype');
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Helvetica Now Display Medium';
     src: url('fonts/HelveticaNowDisplay-Med.ttf') format('truetype');
-}
+} */
 
 @font-face {
     @font-face {
-        font-family: 'Helvetica Now Display Medium';
-        src: url('fonts/HelveticaNowDisplay-Med.ttf') format('truetype');
+        font-family: 'Helvetica Now Display Extra Light Italic';
+        src: url('fonts/HelveticaNowDisplay-ExtLtIta.ttf') format('truetype');
     }
 }
 
@@ -125,7 +125,7 @@ li {
 
 /* here we are styling the error message */
 #error {
-    font-family: "Helvetica Now Display Medium";
+    font-family: "Helvetica ";
     text-align: center;
     background-color: #ffffff;
     /* we are setting colour to red because it indicates danger or a mistake */
@@ -137,6 +137,35 @@ li {
     display: none;
 }
 
+h1 {
+    padding-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
 img {
-    height: 30px;   
+    height: 40px;  
+}
+
+
+.write  {
+    font-family: 'Helvetica now display extra light';
+    font-style: italic;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: rgb(102, 176, 205);
+    margin: 0 5px;
+    vertical-align: middle;
+    animation: blink 1s infinite; /* this will make the cursor blink */
+    
 }
