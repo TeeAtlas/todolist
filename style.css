@@ -119,7 +119,7 @@ li {
 }
 
 .delete__btn:hover > i {
-    color: #ff5c5c;
+    color: rgb(196, 3, 3);
     transform: scale(1.2); /* 1.2 is the scale factor, adjust as needed */
 }
 
@@ -164,8 +164,8 @@ img {
     width: 3px;
     height: 1em;
     background-color: rgb(102, 176, 205);
-    margin: 0 5px;
+    margin: 0 1px;
     vertical-align: middle;
-    animation: blink 1s infinite; /* this will make the cursor blink */
+    animation: blink 1s 10; /* this will make the cursor blink but only 10 tiimes */
     
 }
