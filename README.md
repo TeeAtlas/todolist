@@ -21,7 +21,4 @@ why enter html div syntax in a js file?
 cdnjs - fontawesome icons
 https://fontawesome.com/icons
 
-delete buttons require a forEach loop
----
-adding button works now.
-changed and added some codes.
+
