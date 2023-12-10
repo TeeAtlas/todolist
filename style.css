@@ -169,3 +169,14 @@ img {
     animation: blink 1s 10; /* this will make the cursor blink but only 10 tiimes */
     
 }
+
+
+#startBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#startBtn:hover {
+    opacity: 0.7;
+}
