@@ -10,17 +10,18 @@
     src: url('fonts/HelveticaNowDisplay-ExtLt.ttf') format('truetype');
 }
 
-/* @font-face {
-    font-family: 'Helvetica Now Display Medium';
-    src: url('fonts/HelveticaNowDisplay-Med.ttf') format('truetype');
-} */
-
 @font-face {
+    font-family: 'Helvetica Now Display Medium';
+    src: url('fonts/HelveticaNowDisplay-Medium.ttf') format('truetype');
+}
+
+
+/* @font-face {
     @font-face {
         font-family: 'Helvetica Now Display Extra Light Italic';
         src: url('fonts/HelveticaNowDisplay-ExtLtIta.ttf') format('truetype');
     }
-}
+} */
 
 body {
     height: 100vh;
@@ -119,22 +120,30 @@ li {
 }
 
 .delete__btn:hover > i {
-    color: rgb(196, 3, 3);
+    color: #ff5c5c;
     transform: scale(1.2); /* 1.2 is the scale factor, adjust as needed */
 }
 
 /* here we are styling the error message */
 #error {
-    font-family: "Helvetica ";
+    font-family: 'Helvetica Now Display Medium';
+    font-size: 20px;
     text-align: center;
     background-color: #ffffff;
     /* we are setting colour to red because it indicates danger or a mistake */
-    color: #ff5c5c;
+    color: #6a6b6a;
     margin-top: 1.5em;
     padding: 1em 0;
     /* below gives it a card like appearance */
     border-radius: 0.8em;
     display: none;
+}
+
+.something {
+    font-family: 'Helvetica Now Display Medium';
+    font-size: larger;
+    color: #ff5c5c;
+    text-align: center;
 }
 
 h1 {
@@ -151,6 +160,10 @@ img {
 .write  {
     font-family: 'Helvetica now display extra light';
     font-style: italic;
+}
+
+.here {
+    font-family: 'Helvetica Now Display Medium';
 }
 
 @keyframes blink {
@@ -175,6 +188,29 @@ img {
     background: transparent;
     border: none;
     cursor: pointer;
+    font-size: 16px;
+}
+
+#startBtn .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        background-color: rgb(102, 176, 205);
+        margin: 0 1px;
+        vertical-align: middle;
+        animation: blink 1s 10; /* this will make the cursor blink but only 10 tiimes */
+        
+    }
+
+#startBtn .write {
+    font-family: 'Helvetica now display extra light';
+    font-style: italic;
+    color: #4d4c4c;
+}
+
+#startBtn .here {
+    font-family: 'Helvetica Now Display Medium';
+    color: #4d4c4c;
 }
 
 #startBtn:hover {

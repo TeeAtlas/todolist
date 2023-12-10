@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Welcome Page</title>
 </head>
 <body>
-
     
     <div class="app">
         <div class="container">
-            <button id="startBtn">
-                <h1><span class="write">Write</span> <span class="cursor"></span> <span class="here">Here</span> </h1>
-            </button>
-          
-    </div>
+            <h1><span class="write">Write</span> <span class="cursor"></span> <span class="here">Here</span> </h1>
 
-    <script src="landing.js"></script>
+            <div id="todo__wrapper">
+                <input type="text" id="todo__wrapper-input" placeholder="actually, write here..." />
+                <button id="addBtn">Add</button>
+            </div>
+            
+            <div id="tasks">
+                <p id="task__title">pending tasks <span class="count__value">(0)</span> </p>
+            </div>
+        </div>
+        <p id="error">C'mon, you must have <span class="something">SOMETHING</span> to do</p>
+    </div>
+    
+    <script src="app.js" defer></script>
 </body>
 </html>
