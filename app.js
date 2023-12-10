@@ -9,10 +9,6 @@ const countValue = document.querySelector('.count__value');
 
 // add task button is defined when add button is clicked
 
-document.querySelector('#startBtn').addEventListener('click', function() {
-    window.location.href = '/index.html'; // replace 'landing.html' with the path to your landing page if it's located in another directory
-});
-
 
 const renderListItem = (string) => {
         // create a new list item because the user clicked the submit button
@@ -24,8 +20,34 @@ const renderListItem = (string) => {
         //set the text of the new list item to the values of the input field ( where this child will be placed and connects the value of the todoinput with newListItem and puts it into HTML(body))
         newListItem.innerHTML = string;
         
+        const editBtn = document.createElement('button');
+        editBtn.className = "edit__btn";
+        //this is the address for icon
+        editBtn.innerHTML = '<i class="fa fa-edit"></i>';
 
+        //add event listener to the edit button
+        editBtn.addEventListener('click', (e) => {
+            const input = document.createElement('input')//create new input field'
+            input.type = 'text';
+            input.value = newListItem.textContent;
+            newListItem.textContent = '';
+            newListItem.appendChild(input);
+            input.focus(); //focuses the cursor on the input field
+            input.addEventListener('blur', updateTaskText);
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    updateTaskText();
+                }
+        });
 
+        function updateTaskText() {
+            newListItem.innerHTML = input.value;
+            newListItem.appendChild(editBtn);
+            input.removeEventListener("blur", updateTaskText);
+            input.removeEventListener("keydown", updateTaskText);
+        }
+    });
+        
         
         // create a new delete button
         const deleteBtn = document.createElement('button');
@@ -44,6 +66,8 @@ const renderListItem = (string) => {
             listContainer.removeChild(newListItem)
         });
         
+
+
         //append delete button to the new item
         newListItem.appendChild(deleteBtn);
         
@@ -79,11 +103,6 @@ addBtn.addEventListener('click', (e) => {
             return;
         }
     
-    // if(todoInput.value.trim() == ""){
-    //     alert("You must write a task in the input")
-    //     return
-    // }
-
     // add a todo to the ul
     renderListItem(todoInput.value)
     
@@ -124,72 +143,4 @@ const addToLocalStorage = (string) => {
 }
 
 
-//  // create a new delete button
-//  const deleteBtn = document.createElement('button');
-//  deleteBtn.textContent = 'X';
 
-//  // adding basic styling to button
-//  deleteBtn.style.color = 'grey';
-//  deleteBtn.style.backgroundColor = 'white';
-//  deleteBtn.style.border = '.5px solid grey';
-//  deleteBtn.style.borderRadius = '10px';
-
-
- // this nested function is the event listener for the delete button
- deleteBtn.addEventListener('click', function(e){
-     // remove item when delete is clicked
-     listContainer.removeChild(newListItem);
-
- });
-
-  //append delete button to the new item
-  newListItem.appendChild(deleteBtn);
-
-
-
-
-// // initialising variable for task count
-// let taskCount = 0;
-
-// // as tasks are added, deleted or checked off the display count function is defined
-// const displayCount = (taskCount) => {
-//     countValue.innerText = taskCount;
-// };
-
-
-
-
-    // declared as an html string stored in the task variable
-// const task = `<div class="task">
-//      <input type="checkbox" class="task-check">
-//      <span class="taskname">${taskName}</span>
-//      <button class="edit">
-//      <i class="fa-regular fa-pen-to-square"></i>
-//      </button>
-//      <button class="delete">
-//      <i class="fa-regular fa-trash-can"></i>
-//      </button>
-//     </div>`;
-
-//     listContainer.insertAdjacentHTML("beforeend", task);
-// };
-
-
-
-
-// Enrique's adding a new task way
-// const renderTask = (todo) => {
-//     const li = document.createElement('li');
-//     li.id = todo.id;
-//     li.innerHTML = 
-//         <input type="checkbox" class="task-check">
-//           <span class="taskname">${taskName}</span>
-//           <button class="edit">
-//           <i class="fa-regular fa-pen-to-square"></i>
-//           </button>
-//           <button class="delete">
-//           <i class="fa-regular fa-trash-can"></i>
-//           </button>
-//         </input>;
-//         listContainer.appendChild(li);
-// }
